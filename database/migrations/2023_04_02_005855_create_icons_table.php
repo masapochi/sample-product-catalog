@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('slug', 255)->unique()->index();
             $table->string('name', 100);
+            $table->integer('priority')->unsigned()->default(0);
             $table->boolean('is_public')->default(0)->index();
         });
     }
