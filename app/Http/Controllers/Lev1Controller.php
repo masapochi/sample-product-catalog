@@ -12,6 +12,7 @@ class Lev1Controller extends Controller
         $lev1->load(['children']);
 
         return view('categories.list', [
+            'parents' => $lev1->parents,
             'current' => $lev1,
             'list'    => $lev1->children,
         ]);

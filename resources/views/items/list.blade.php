@@ -8,11 +8,11 @@
         <a href="{{ $parent->path() }}">{{ $parent->name }}</a>
       </li>
     @endforeach
+    <li>{{ $current->name }}</li>
   </ul>
 @endisset
 
 @isset($current)
-
   <h1>{{ $current->name }}</h1>
 @endisset
 <ul>

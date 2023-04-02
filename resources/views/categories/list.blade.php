@@ -1,12 +1,16 @@
-@isset($parents)
+@if(request()->route()->getName() !== 'home')
   <ul>
-    @foreach($parents as $parent)
-      <li>
-        <a href="">{{ $parent->name }}</a>
-      </li>
-    @endforeach
+    <li><a href="{{ route('home') }}">Home</a></li>
+    @isset($parents)
+      @foreach($parents as $parent)
+        <li>
+          <a href="{{ $parent->path() }}">{{ $parent->name }}</a>
+        </li>
+      @endforeach
+    @endisset
+    <li>{{ $current->name }}</li>
   </ul>
-@endisset
+@endif
 
 @isset($current)
 
