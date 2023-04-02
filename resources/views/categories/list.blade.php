@@ -13,6 +13,7 @@
   @foreach($list as $item)
     <li>
       <a href="{{ $item->path() }}">
+        <img src="{{ asset("images/cats/{$item->slug}/main.jpg") }}" alt="">
         {{ $item->name }}
       </a>
     </li>

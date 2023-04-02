@@ -212,4 +212,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+
+    'unsplash_access_key' => env('UNSPLASH_ACCESS_KEY', 'unsplash_access_key'),
 ];
