@@ -1,15 +1,8 @@
+@extends('app')
+
+@section('content')
 @if(request()->route()->getName() !== 'home')
-  <ul>
-    <li><a href="{{ route('home') }}">Home</a></li>
-    @isset($parents)
-      @foreach($parents as $parent)
-        <li>
-          <a href="{{ $parent->path() }}">{{ $parent->name }}</a>
-        </li>
-      @endforeach
-    @endisset
-    <li>{{ $current->name }}</li>
-  </ul>
+  {{ Breadcrumbs::render('list', $current) }}
 @endif
 
 @isset($current)
@@ -25,3 +18,4 @@
     </li>
   @endforeach
 </ul>
+@endsection

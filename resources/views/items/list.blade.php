@@ -1,16 +1,7 @@
-@isset($parents)
-  <ul>
-    <li>
-      <a href="{{ route('home') }}">Home</a>
-    </li>
-    @foreach($parents as $parent)
-      <li>
-        <a href="{{ $parent->path() }}">{{ $parent->name }}</a>
-      </li>
-    @endforeach
-    <li>{{ $current->name }}</li>
-  </ul>
-@endisset
+@extends('app')
+
+@section('content')
+{{ Breadcrumbs::render('list', $current) }}
 
 @isset($current)
   <h1>{{ $current->name }}</h1>
@@ -26,3 +17,5 @@
     </li>
   @endforeach
 </ul>
+
+@endsection
