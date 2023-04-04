@@ -44,7 +44,9 @@ class Item extends Model
      */
     public function icons(): BelongsToMany
     {
-        return $this->belongsToMany(Icon::class, 'icon_item', 'item_id', 'icon_id');
+        return $this->belongsToMany(Icon::class, 'icon_item', 'item_id', 'icon_id')
+            ->using(IconItem::class)
+            ->withTimestamps();
     }
 
     /**

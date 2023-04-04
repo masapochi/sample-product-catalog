@@ -16,10 +16,14 @@ class FeatureFactory extends Factory
      */
     public function definition()
     {
+        $date = fake()->dateTimeBetween('-1year');
+
         return [
-            'content'   => fake()->sentence(3),
-            'priority'  => 0,
-            'is_public' => true,
+            'created_at' => $date,
+            'updated_at' => $date,
+            'content'    => fake()->sentence(30),
+            'priority'   => 0,
+            'is_public'  => true,
         ];
     }
 }

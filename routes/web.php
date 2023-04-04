@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('scrape')->group(function () {
+    Route::get('resize-cats', [ImageCollectController::class, 'resizeCats']);
+    Route::get('resize-items', [ImageCollectController::class, 'resizeItems']);
+    Route::get('resize-icons', [ImageCollectController::class, 'resizeIcons']);
     Route::get('cats', [ImageCollectController::class, 'cats']);
     Route::get('items', [ImageCollectController::class, 'items']);
     Route::get('icons', [ImageCollectController::class, 'icons']);

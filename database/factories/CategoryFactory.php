@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = fake()->sentence(3);
+        $name = fake()->sentence(2);
         $slug = Str::slug($name, '-');
         $date = fake()->dateTimeBetween('-1year');
         return [

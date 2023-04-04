@@ -17,9 +17,13 @@ class IconFactory extends Factory
      */
     public function definition()
     {
-        $name = fake()->sentence(3);
+        $name = fake()->sentence(5);
         $slug = Str::slug($name, '-');
+        $date = fake()->dateTimeBetween('-1year');
+
         return [
+            'created_at'  => $date,
+            'updated_at'  => $date,
             'slug'        => $slug,
             'name'        => $name,
             'priority'    => 0,

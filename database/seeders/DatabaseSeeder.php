@@ -23,11 +23,12 @@ class DatabaseSeeder extends Seeder
         Category::factory()
             ->has(Category::factory()
                 ->has(Item::factory()
-                    ->has(Feature::factory()->count(3), 'features')
-                    ->has(Spec::factory()->count(3), 'specs')
-                    ->has(Icon::factory()->count(3), 'icons')
-                    ->count(3), 'items')
-                ->count(3), 'children')
-            ->count(3)->create();
+                    ->has(Feature::factory()->count(random_int(2, 3)), 'features')
+                    ->has(Spec::factory()->count(random_int(4, 8)), 'specs')
+                    ->has(Icon::factory()->count(random_int(2, 3)), 'icons')
+                    ->count(random_int(3, 8)), 'items')
+                ->count(random_int(3, 8)), 'children')
+            ->count(random_int(8, 8))
+            ->create();
     }
 }

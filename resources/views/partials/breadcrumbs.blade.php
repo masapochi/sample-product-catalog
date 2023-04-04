@@ -1,6 +1,6 @@
 @unless($breadcrumbs->isEmpty())
   <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb mb-0">
       @foreach($breadcrumbs as $breadcrumb)
 
         @if($breadcrumb->url && !$loop->last)

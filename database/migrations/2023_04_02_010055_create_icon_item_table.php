@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('icon_item', function (Blueprint $table) {
             $table->timestamps();
-            $table->softDeletes();
             $table->integer('item_id');
             $table->bigInteger('icon_id');
             $table->integer('priority')->default(0)->unsigned()->index();

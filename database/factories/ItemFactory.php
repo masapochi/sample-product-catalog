@@ -18,12 +18,15 @@ class ItemFactory extends Factory
     public function definition()
     {
         $random_number = fake()->numberBetween(100000, 999999);
-        $name = fake()->sentence(3);
-        $slug = Str::slug($name, '-');
-        $product_code = strtoupper(fake()->bothify('??-########'));
-        $material = fake()->randomElement(['cotton', 'wool', 'leather', 'silk', 'linen', 'cashmere']);
-        $size = fake()->randomFloat($nbMaxDecimals = 1, $min = 10, $max = 1000);
+        $name          = fake()->sentence(3);
+        $slug          = Str::slug($name, '-');
+        $product_code  = strtoupper(fake()->bothify('??-########'));
+        $material      = fake()->randomElement(['cotton', 'wool', 'leather', 'silk', 'linen', 'cashmere']);
+        $date = fake()->dateTimeBetween('-1year');
+
         return [
+            'created_at'  => $date,
+            'updated_at'  => $date,
             'code'        => $random_number,
             'slug'        => $slug,
             'name'        => $name,

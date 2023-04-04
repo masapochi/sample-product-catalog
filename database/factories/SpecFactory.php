@@ -16,11 +16,14 @@ class SpecFactory extends Factory
      */
     public function definition()
     {
+        $date = fake()->dateTimeBetween('-1year');
         return [
-            'heading'  => fake()->word(),
-            'content'  => fake()->sentence(3),
-            'priority'  => 0,
-            'is_public' => true,
+            'created_at' => $date,
+            'updated_at' => $date,
+            'heading'    => fake()->word(),
+            'content'    => fake()->sentence(3),
+            'priority'   => 0,
+            'is_public'  => true,
         ];
     }
 }

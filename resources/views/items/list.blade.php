@@ -6,16 +6,18 @@
 @isset($current)
   <h1>{{ $current->name }}</h1>
 @endisset
-<ul>
-  @foreach($list as $item)
-    <li>
-      <a href="{{ $item->path() }}">
-        <p>{{ $item->path() }}</p>
-        {{ $item->name }}
-        {{ $item->model }}
-      </a>
-    </li>
-  @endforeach
-</ul>
+<div class="container">
+  <ul>
+    @foreach($list as $item)
+      <li>
+        <a href="{{ $item->path() }}">
+          <p>{{ $item->path() }}</p>
+          {{ $item->name }}
+          {{ $item->model }}
+        </a>
+      </li>
+    @endforeach
+  </ul>
+</div>
 
 @endsection
