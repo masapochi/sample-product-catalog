@@ -28,16 +28,8 @@ Route::prefix('scrape')->group(function () {
     Route::get('icons', [ImageCollectController::class, 'icons']);
 });
 
-Route::get('/search', function () {
-    $q = request()->q;
 
-    if (!$q) return redirect()->route('home');
-
-    $items = Item::where('name', 'like', "%{$q}%")->get();
-    return view('search', [
-        'items' => $items,
-    ]);
-})->name('search');
+Route::get('/search', HomeController::class)->name('search');
 
 Route::prefix('/')->group(function () {
     Route::get('/', HomeController::class)->name('home');
