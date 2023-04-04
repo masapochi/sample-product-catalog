@@ -13,6 +13,10 @@
     margin-bottom: 3rem;
 }
 
+.hero-image {
+    object-fit: cover;
+}
+
 .hero-title-container {
     background-color: rgba(0, 0, 0, .5);
     transform: translateY(-50%);

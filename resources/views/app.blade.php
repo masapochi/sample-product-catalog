@@ -29,7 +29,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="search-form" class="d-flex ms-auto" role="search" action="./">
+          <form id="search-form" class="d-flex ms-auto" role="search" action="{{ route('search') }}">
             <input class="form-control me-2" type="search" name="q" placeholder="Enter Keywords..." aria-label="Search">
           </form>
         </div>

@@ -20,6 +20,10 @@ class CategoryTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+    }
+
+    public function initializeModels()
+    {
         $this->rootCategories = Category::factory()
             ->has(Category::factory()
                 ->has(Item::factory()
@@ -37,6 +41,7 @@ class CategoryTest extends TestCase
     public function ルートディレクトリアクセスした時に第一階層のカテゴリが表示されている()
     {
         $this->withoutExceptionHandling();
+        $this->initializeModels();
 
         $response = $this->get('/');
 
@@ -54,7 +59,7 @@ class CategoryTest extends TestCase
     public function 第一階層のカテゴリIDを指定した時に第二階層のカテゴリが表示される()
     {
         $this->withoutExceptionHandling();
-
+        $this->initializeModels();
 
         $current    = $this->rootCategories[0];
         $categories = $current->children;
@@ -76,6 +81,7 @@ class CategoryTest extends TestCase
     public function 第二階層にカテゴリIDを指定した時にアイテム一覧が表示される()
     {
         $this->withoutExceptionHandling();
+        $this->initializeModels();
 
         $lev1    = $this->rootCategories[0];
         $current = $lev1->children[0];
@@ -99,6 +105,8 @@ class CategoryTest extends TestCase
     public function 第三階層にアイテムIDを指定した時にアイテム詳細が表示される()
     {
         $this->withoutExceptionHandling();
+        $this->initializeModels();
+
         $lev1     = $this->rootCategories[0];
         $lev2     = $lev1->children[0];
         $current  = $lev2->items[0];
@@ -136,7 +144,9 @@ class CategoryTest extends TestCase
      */
     public function 第二階層に存在しないカテゴリIDを指定した時に404エラーを返す()
     {
-        $lev1     = $this->rootCategories[0];
+        $this->initializeModels();
+
+        $lev1 = $this->rootCategories[0];
 
         $response = $this->get("/{$lev1->slug}/not-exist-category");
         $response->assertStatus(404);
@@ -146,10 +156,49 @@ class CategoryTest extends TestCase
      */
     public function 第二階層に存在しないアイテムIDを指定した時に404エラーを返す()
     {
+        $this->initializeModels();
+
         $lev1     = $this->rootCategories[0];
         $lev2     = $lev1->children[0];
 
         $response = $this->get("/{$lev1->slug}/{$lev2->slug}/not-exist-item");
         $response->assertStatus(404);
+    }
+
+    /**
+     * @test
+     */
+    public function キーワード検索で正しい結果を返す()
+    {
+        $this->withoutExceptionHandling();
+
+        $item1 = Item::factory()->create([
+            'category_id' => 1,
+            'name'        => 'product1'
+        ]);
+        $item2 = Item::factory()->create([
+            'category_id' => 1,
+            'name'        => 'product2'
+        ]);
+        $item3 = Item::factory()->create([
+            'category_id' => 1,
+            'name'        => 'product3'
+        ]);
+
+        $response = $this->get('/search?q=product');
+        $response->assertStatus(200);
+        $response->assertViewIs('search');
+        $response->assertSeeText($item1->name);
+        $response->assertSeeText($item2->name);
+        $response->assertSeeText($item3->name);
+    }
+
+    /**
+     * @test
+     */
+    public function キーワード検索でキーワードがない場合ホーム画面にリダイレクト()
+    {
+        $response = $this->get('/search');
+        $response->assertRedirect(route('home'));
     }
 }
