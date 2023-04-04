@@ -8,6 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.2/zephyr/bootstrap.min.css" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
 </head>
 
 <body class="text-green-200">
