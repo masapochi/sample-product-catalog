@@ -18,7 +18,7 @@
     <h2 class="text-center">Features</h2>
     <div class="d-flex flex-column gap-5 mt-5">
       @foreach($current->features as $i=> $feature)
-        <div class="row g-3 g-md-5 align-items-center">
+        <div class="feature row g-3 g-md-5 align-items-center">
           <div class="col-12 col-md-6">
             <img class="img-fluid shadow-lg" src="{{ asset("images/items/{$current->slug}/feature_" .$i+1 . ".jpg") }}" alt="" loading="lazy" decodinc="async">
           </div>

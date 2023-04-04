@@ -7,3 +7,38 @@
     min-width: 100%;
     width: max-content;
 }
+
+.hero-container {
+    height: calc(100vh - 122px);
+    margin-bottom: 3rem;
+}
+
+.hero-title-container {
+    background-color: rgba(0, 0, 0, .5);
+    transform: translateY(-50%);
+
+    padding: 1.5rem;
+
+    @media (min-width: 768px) {
+        margin-left: 1.5rem;
+        width: 75%;
+    }
+
+    @media (min-width: 1024px) {
+        margin-left: 3rem;
+        width: 65%;
+        padding: 2.5rem;
+    }
+
+    @media (min-width: 1200px) {
+        width: 50%;
+    }
+}
+
+.feature {
+    @media (min-width: 768px) {
+        &:nth-of-type(even) {
+            flex-direction: row-reverse;
+        }
+    }
+}

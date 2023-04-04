@@ -6,17 +6,11 @@
 @include('partials.hero', ['current' => $current])
 
 <div class="container">
-  <ul>
+  <div class="row">
     @foreach($list as $item)
-      <li>
-        <a href="{{ $item->path() }}">
-          <p>{{ $item->path() }}</p>
-          {{ $item->name }}
-          {{ $item->model }}
-        </a>
-      </li>
+      @include('partials.card', ['item' => $item])
     @endforeach
-  </ul>
+  </div>
 </div>
 
 @endsection
