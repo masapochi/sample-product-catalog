@@ -3,9 +3,7 @@
 @section('content')
 {{ Breadcrumbs::render('list', $current) }}
 
-<div class="position-relative vh-100">
-  <img class="w-100 h-100 img-fluid" style="object-fit: cover" src="{{ asset("images/items/{$current->slug}/hero.jpg") }}" alt="">
-</div>
+@include('partials.hero', ['current' => $current])
 
 <div class="container mt-5">
   <h1 class="">{{ $current->name }}</h1>

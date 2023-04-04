@@ -74,4 +74,9 @@ class Item extends Model
                 ->implode('/')
         );
     }
+
+    public function heroImage()
+    {
+        return asset("images/items/{$this->slug}/hero.jpg");
+    }
 }

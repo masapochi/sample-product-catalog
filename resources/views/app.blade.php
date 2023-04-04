@@ -11,21 +11,20 @@
 </head>
 
 <body class="text-green-200">
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ route('home') }}">Sample Products Catalog</a>
-      <button type="button" class="btn btn-light ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#searchModal">
         <i class="fas fa-search"></i>
       </button>
     </div>
   </nav>
 
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Keyword Search</h1>
+          <h1 class="modal-title fs-5" id="searchModalLabel">Keyword Search</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

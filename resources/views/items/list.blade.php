@@ -3,9 +3,8 @@
 @section('content')
 {{ Breadcrumbs::render('list', $current) }}
 
-@isset($current)
-  <h1>{{ $current->name }}</h1>
-@endisset
+@include('partials.hero', ['current' => $current])
+
 <div class="container">
   <ul>
     @foreach($list as $item)

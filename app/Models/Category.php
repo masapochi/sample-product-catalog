@@ -68,4 +68,9 @@ class Category extends Model
                 ->implode('/')
         );
     }
+
+    public function heroImage()
+    {
+        return asset("images/categories/{$this->slug}/hero.jpg");
+    }
 }

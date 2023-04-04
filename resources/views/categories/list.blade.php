@@ -6,14 +6,9 @@
 @endif
 
 @isset($current)
-  <div class="position-relative" style="height: calc(100vh - 122px)">
-    <img class="w-100 h-100 img-fluid" style="object-fit: cover" src="{{ asset("images/categories/{$current->slug}/hero.jpg") }}" alt="">
-    <div class="position-absolute top-50 left-50 ms-5 ">
-      <h1 class="text-white">{{ $current->name }}</h1>
-      <p class="text-white w-50">{{ $current->description }}</p>
-    </div>
-  </div>
+  @include('partials.hero', ['current' => $current])
 @endisset
+
 <div class="container">
   <div class="row">
     @foreach($list as $item)
