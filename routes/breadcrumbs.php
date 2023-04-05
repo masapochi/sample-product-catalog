@@ -23,3 +23,7 @@ Breadcrumbs::for('list', function (BreadcrumbTrail $trail, $model = null) {
     }
     $trail->push($model->name, $model->path());
 });
+Breadcrumbs::for('search', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Search results for "' . request()->q . '"');
+});

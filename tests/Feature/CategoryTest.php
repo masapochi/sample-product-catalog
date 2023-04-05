@@ -172,6 +172,8 @@ class CategoryTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        $category = Category::factory()->create();
+
         $item1 = Item::factory()->create([
             'category_id' => 1,
             'name'        => 'product1'

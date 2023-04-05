@@ -5,6 +5,7 @@ use App\Http\Controllers\ImageCollectController;
 use App\Http\Controllers\Lev1Controller;
 use App\Http\Controllers\Lev2Controller;
 use App\Http\Controllers\Lev3Controller;
+use App\Http\Controllers\SearchController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,7 @@ Route::prefix('scrape')->group(function () {
 });
 
 
-Route::get('/search', HomeController::class)->name('search');
+Route::get('search', SearchController::class)->name('search');
 
 Route::prefix('/')->group(function () {
     Route::get('/', HomeController::class)->name('home');
