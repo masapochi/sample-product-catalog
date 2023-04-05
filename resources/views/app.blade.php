@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="robots" content="noindex,nofollow">
   <title>Sample Products Catalog | Masapochi.me</title>
-  <meta name="description" content="This is a dummy product catalog using " Lorem Ipsum".">
+  <meta name="description" content="This is a dummy product catalog using 'Lorem Ipsum'.">
+  <link rel="shortcut icon" href="https://masapochi.me/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.2/zephyr/bootstrap.min.css" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
